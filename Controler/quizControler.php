@@ -18,7 +18,25 @@ require_once "Model/model.php";
     }
 
      public function postQuiz()    {
-        require_once("View/quizViewPost.php");
+        $points = 0;
+        $questionNumber = sizeof($_POST);
+
+        foreach ($_POST as $reponse => $reponse_value) {
+            list($category, $question) = explode("/", $reponse);
+            $goodreponse = $this->quizData->{'quiz'}->$category->$question->{'answer'};
+
+            if ($reponse_value == $goodreponse  ) {
+                $points++;
+            } else {
+                $points--;
+            }
+        }
+
+        if ($points < $questionNumber) {
+            require("View/quiViewPostN.php");
+        } else {
+            require("View/quizViewPost.php");
+        }
 
     }
 }

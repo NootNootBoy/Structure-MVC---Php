@@ -15,8 +15,8 @@
 				<input type="radio" name="<?= "{$category}/{$question}" ?>" value="<?= $choices ?>" />
 				<label for="<?= "{$category}/{$question}" ?>"><?= $choices ?></label>
 				<?php } ?>
-		<?php } ?>
-		<?php } ?>
+			<?php } ?>
+			<?php } ?>
 
 			<br>
 			<button type="submit">Envoyer</button>
